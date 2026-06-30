@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instant Pickup Barang — Kantor Pos Cilegon 42400</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #030712;
+  --bg-dark: #0B1120;
+  --bg-card: #111827;
+  --bg-card-hover: #1A2332;
+  --bg-input: #0F1729;
+  --surface: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.06);
+  --border-light: rgba(255,255,255,0.10);
+  --text: #F1F5F9;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+  --orange: #E84C16;
+  --orange-glow: rgba(232,76,22,0.20);
+  --orange-light: rgba(232,76,22,0.08);
+  --blue-accent: #3B82F6;
+  --green: #10B981;
+  --whatsapp: #25D366;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-lg: 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg-deep); color: var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+/* NAV */
+.nav { position:sticky; top:0; z-index:100; background:rgba(3,7,18,0.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 2rem; height:72px; display:flex; align-items:center; justify-content:space-between; }
+.nav-brand { display:flex; align-items:center; gap:0.75rem; text-decoration:none; }
+.nav-brand-text { font-size:1.05rem; font-weight:800; color:#fff; letter-spacing:-0.02em; }
+.nav-brand-text span { color: var(--orange); }
+.nav-links { display:flex; align-items:center; gap:1.5rem; }
+.nav-links a { text-decoration:none; color:var(--text-dim); font-size:0.88rem; font-weight:500; transition:color 0.2s; }
+.nav-links a:hover { color:#fff; }
+.btn-nav { display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.2rem; border-radius:50px; font-size:0.85rem; font-weight:600; text-decoration:none; background:var(--orange); color:#fff; transition:all 0.2s; }
+.btn-nav:hover { filter:brightness(1.15); box-shadow:0 0 20px var(--orange-glow); }
+
+/* CONTAINER */
+.container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
+
+/* HERO */
+.hero { padding: 5rem 0 4rem; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(ellipse at 50% 0%, rgba(232,76,22,0.06) 0%, transparent 70%); pointer-events:none; }
+.hero-exclusive { display:inline-flex; align-items:center; gap:0.5rem; padding:0.4rem 1.2rem; border-radius:50px; background:rgba(232,76,22,0.12); border:1px solid rgba(232,76,22,0.25); color:var(--orange); font-size:0.8rem; font-weight:600; margin-bottom:1.5rem; }
+.hero-exclusive .dot { width:8px; height:8px; border-radius:50%; background:var(--orange); animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.hero-logos { display:flex; justify-content:center; align-items:center; gap:2.5rem; margin-bottom:2.5rem; flex-wrap:wrap; }
+.hero-logo-box { padding:1rem 2rem; border-radius:var(--radius); background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; transition:all 0.3s; }
+.hero-logo-box:hover { border-color:var(--border-light); background:var(--bg-card-hover); }
+.hero-logo-box img { display:block; max-height:48px; width:auto; }
+.hero-logo-divider { width:3px; height:40px; background:rgba(255,255,255,0.10); border-radius:2px; }
+.hero-title { font-size:clamp(2.2rem, 5vw, 3.4rem); font-weight:900; color:#fff; letter-spacing:-0.04em; line-height:1.1; margin-bottom:1rem; }
+.hero-title .highlight { color:var(--orange); position:relative; }
+.hero-subtitle { font-size:1.1rem; color:var(--text-muted); max-width:650px; margin:0 auto 2rem; line-height:1.7; }
+.hero-cta { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+
+/* BUTTONS */
+.btn { display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 2rem; border-radius:50px; font-size:0.95rem; font-weight:600; text-decoration:none; border:none; cursor:pointer; font-family:inherit; transition:all 0.25s; }
+.btn-primary { background:var(--orange); color:#fff; }
+.btn-primary:hover { filter:brightness(1.15); transform:translateY(-2px); box-shadow:0 8px 30px var(--orange-glow); }
+.btn-outline { background:transparent; color:#fff; border:1.5px solid var(--border-light); }
+.btn-outline:hover { background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.2); transform:translateY(-2px); }
+.btn-wa { background:var(--whatsapp); color:#fff; }
+.btn-wa:hover { filter:brightness(1.1); transform:translateY(-2px); }
+.btn-submit { width:100%; justify-content:center; padding:0.9rem 2rem; font-size:1rem; }
+
+/* SECTIONS */
+.section { padding:4rem 0; }
+.section-dark { background:var(--bg-dark); }
+.section-card { background:var(--bg-deep); }
+
+.section-label { display:inline-block; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--orange); margin-bottom:0.5rem; }
+.section-title { font-size:1.8rem; font-weight:800; color:#fff; margin-bottom:0.3rem; letter-spacing:-0.02em; }
+.section-subtitle { font-size:0.95rem; color:var(--text-muted); margin-bottom:2.5rem; max-width:600px; }
+
+/* HOW IT WORKS */
+.how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.how-card { background:var(--bg-card); border-radius:var(--radius); padding:1.8rem; border:1px solid var(--border); text-align:center; transition:all 0.3s; position:relative; }
+.how-card:hover { border-color:var(--border-light); transform:translateY(-3px); background:var(--bg-card-hover); }
+.how-step { display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:var(--orange-light); color:var(--orange); font-size:1.2rem; font-weight:800; margin-bottom:1rem; }
+.how-card h3 { font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:0.5rem; }
+.how-card p { font-size:0.85rem; color:var(--text-muted); line-height:1.6; }
+
+/* SERVICES */
+.svc-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1rem; }
+.svc-card { background:var(--bg-card); border-radius:var(--radius); padding:1.5rem; border:1px solid var(--border); display:flex; align-items:flex-start; gap:1rem; cursor:pointer; text-decoration:none; color:var(--text); transition:all 0.3s; }
+.svc-card:hover { border-color:var(--border-light); transform:translateY(-3px); background:var(--bg-card-hover); }
+.svc-icon { width:52px; height:52px; border-radius:var(--radius-sm); background:var(--orange-light); display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; }
+.svc-card h4 { font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.2rem; }
+.svc-card span { font-size:0.82rem; color:var(--text-muted); }
+
+/* OFFER */
+.offer-card { background:linear-gradient(135deg, #1A1118 0%, #111827 100%); border-radius:var(--radius-lg); padding:2rem; border:1px solid rgba(232,76,22,0.15); margin-bottom:1rem; }
+.offer-card p { color:var(--text-muted); font-size:0.9rem; margin-bottom:1.2rem; }
+.marketplace-grid { display:flex; flex-wrap:wrap; gap:0.6rem; }
+.mkt-badge { display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; border-radius:50px; font-size:0.8rem; font-weight:600; background:rgba(255,255,255,0.03); border:1px solid var(--border); color:#fff; transition:all 0.2s; }
+.mkt-badge:hover { transform:translateY(-2px); }
+.mkt-icon { font-size:1rem; }
+.mkt-badge.shopee { border-color:rgba(238,77,45,0.4); color:#EE4D2D; }
+.mkt-badge.tokopedia { border-color:rgba(66,183,42,0.4); color:#42B72A; }
+.mkt-badge.tiktok { border-color:rgba(238,29,140,0.4); color:#EE1D8C; }
+.mkt-badge.lazada { border-color:rgba(15,22,110,0.4); color:#4F5BD5; }
+.mkt-badge.umkm { border-color:rgba(6,182,212,0.4); color:#06B6D4; }
+.offer-card-alt { background:linear-gradient(135deg, #0F1720 0%, #111827 100%); border-radius:var(--radius); padding:1.5rem; border:1px solid rgba(251,191,36,0.15); }
+.offer-highlight { background:rgba(251,191,36,0.08); border-radius:var(--radius-sm); padding:0.8rem 1.2rem; color:#FBBF24; font-size:0.9rem; }
+
+/* LOCATIONS */
+.loc-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:0.8rem; }
+.loc-card { background:var(--bg-card); border-radius:var(--radius); padding:1.2rem; border:1px solid var(--border); display:flex; align-items:center; gap:0.8rem; text-decoration:none; color:var(--text); transition:all 0.3s; }
+.loc-card:hover { border-color:var(--border-light); transform:translateY(-2px); background:var(--bg-card-hover); }
+.loc-icon { font-size:1.5rem; flex-shrink:0; }
+.loc-card h4 { font-size:0.9rem; font-weight:700; color:#fff; }
+.loc-card p { font-size:0.75rem; color:var(--text-dim); }
+
+/* WHY US */
+.why-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1rem; }
+.why-card { background:var(--bg-card); border-radius:var(--radius); padding:1.5rem; border:1px solid var(--border); transition:all 0.3s; text-align:center; }
+.why-card:hover { border-color:var(--border-light); transform:translateY(-3px); }
+.why-icon { font-size:2rem; margin-bottom:0.8rem; }
+.why-card h4 { font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.3rem; }
+.why-card p { font-size:0.82rem; color:var(--text-muted); }
+
+/* FORM */
+.form-section { max-width:680px; margin:0 auto; }
+.form-card { background:var(--bg-card); border-radius:var(--radius-lg); padding:2.2rem; border:1px solid var(--border); }
+.form-group { margin-bottom:1.1rem; }
+.form-group label { display:block; font-weight:600; margin-bottom:0.35rem; font-size:0.85rem; color:var(--text); }
+.form-group input, .form-group textarea { width:100%; padding:0.7rem 0.9rem; border:1.5px solid var(--border); border-radius:var(--radius-sm); font-size:0.9rem; font-family:inherit; background:var(--bg-input); color:var(--text); transition:all 0.2s; }
+.form-group input:focus, .form-group textarea:focus { border-color:var(--orange); outline:none; box-shadow:0 0 0 3px rgba(232,76,22,0.1); background:#0F172A; }
+.form-group textarea { resize:vertical; min-height:70px; }
+.form-group input::placeholder, .form-group textarea::placeholder { color:var(--text-dim); }
+
+/* CONTACT BAR */
+.contact-bar { background:linear-gradient(135deg, #0F1720 0%, #111827 100%); border-radius:var(--radius-lg); padding:1.5rem 2rem; border:1px solid rgba(37,211,102,0.15); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+.contact-info h3 { font-size:1.15rem; font-weight:700; color:#fff; margin-bottom:0.2rem; }
+.contact-info p { color:var(--text-muted); font-size:0.88rem; }
+
+/* FOOTER */
+.footer { background:var(--bg-dark); border-top:1px solid var(--border); padding:2.5rem 0 1.5rem; text-align:center; margin-top:3rem; }
+.footer-head { font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.5rem; }
+.footer-line { font-size:0.85rem; color:var(--text-muted); }
+.footer-sub { font-size:0.85rem; color:var(--text-dim); margin-top:0.2rem; }
+.footer-copy { font-size:0.75rem; color:var(--text-dim); margin-top:1.5rem; padding-top:1.2rem; border-top:1px solid var(--border); }
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .nav { padding:0 1rem; height:64px; }
+  .nav-brand-text { font-size:0.9rem; }
+  .nav-links a:not(.btn-nav) { display:none; }
+  .hero { padding:3rem 0 3rem; }
+  .hero h1 { font-size:2rem; }
+  .how-grid { grid-template-columns:1fr; }
+  .svc-grid { grid-template-columns:1fr 1fr; }
+  .why-grid { grid-template-columns:1fr 1fr; }
+  .loc-grid { grid-template-columns:1fr 1fr; }
+  .form-card { padding:1.5rem; }
+}
+@media (max-width:480px) {
+  .svc-grid { grid-template-columns:1fr; }
+  .loc-grid { grid-template-columns:1fr; }
+  .contact-bar { flex-direction:column; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-text">Instant <span>Pickup</span> 42400</span>
+  </a>
+  <div class="nav-links">
+    <a href="#cara-kerja">Cara Kerja</a>
+    <a href="#layanan">Layanan</a>
+    <a href="#lokasi">Lokasi</a>
+    <a href="#ajukan">Ajukan</a>
+    <a href="#login-page" class="btn-nav">🔑 Login</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-exclusive"><span class="dot"></span> Layanan Resmi PT Pos Indonesia (Persero)</div>
+    
+    <div class="hero-logos">
+      <div class="hero-logo-box">
+        <img src="/images/logo_posind.png" alt="POS INDONESIA" style="height:52px;">
+      </div>
+      <div class="hero-logo-divider"></div>
+      <div class="hero-logo-box">
+        <img src="/images/danantara-removebg-preview.png" alt="DANANTARA" style="height:44px;">
+      </div>
+    </div>
+    
+    <h1 class="hero-title">Instant <span class="highlight">Pickup</span> Barang</h1>
+    <p class="hero-subtitle">
+      Layanan gratis penjemputan kiriman khusus wilayah <strong>Kantor Pos Cilegon 42400</strong>. 
+      Tanpa registrasi, tanpa minimum kiriman — isi form, kami jemput.
+    </p>
+    <div class="hero-cta">
+      <a href="#ajukan" class="btn btn-primary">📦 Ajukan Pickup Sekarang</a>
+      <a href="https://wa.me/628990752617" class="btn btn-outline">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- CARA KERJA -->
+<section class="section section-dark" id="cara-kerja">
+  <div class="container">
+    <div class="section-label">⚡ Proses</div>
+    <h2 class="section-title">Cara Kerja</h2>
+    <p class="section-subtitle">Tiga langkah mudah — tanpa ribet.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-step">1</div>
+        <h3>Isi Form Pickup</h3>
+        <p>Isi data singkat — nama, kontak, alamat jemput, dan tujuan. Tanpa login, tanpa verifikasi.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-step">2</div>
+        <h3>Petugas Menjemput</h3>
+        <p>Petugas kami datang ke lokasi Anda sesuai jadwal. Gratis, tanpa biaya tambahan.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-step">3</div>
+        <h3>Kiriman Terproses</h3>
+        <p>Paket diproses dan dikirim melalui jaringan PT Pos Indonesia. Lacak dengan nomor referensi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="section section-card" id="layanan">
+  <div class="container">
+    <div class="section-label">🛠️ Layanan</div>
+    <h2 class="section-title">Layanan Kami</h2>
+    <p class="section-subtitle">Semua yang Anda butuhkan untuk pengiriman mudah.</p>
+    <div class="svc-grid">
+      <a href="#ajukan" class="svc-card">
+        <div class="svc-icon">📦</div>
+        <div><h4>Ajukan Pickup</h4><span>Form singkat — gratis, tanpa minimum</span></div>
+      </a>
+      <a href="https://www.posindonesia.co.id/id/tracking" target="_blank" class="svc-card">
+        <div class="svc-icon">🔍</div>
+        <div><h4>Tracking Kiriman</h4><span>Lacak paket real-time</span></div>
+      </a>
+      <a href="https://www.posindonesia.co.id/en" target="_blank" class="svc-card">
+        <div class="svc-icon">💰</div>
+        <div><h4>Cek Tarif Kiriman</h4><span>Estimasi biaya pengiriman</span></div>
+      </a>
+      <a href="https://wa.me/628990752617" target="_blank" class="svc-card">
+        <div class="svc-icon">📞</div>
+        <div><h4>Hubungi Petugas</h4><span>Butuh bantuan? Chat WhatsApp</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL OFFER -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">🎁 Eksklusif</div>
+    <h2 class="section-title">Penawaran Spesial untuk Seller & UMKM</h2>
+    <p class="section-subtitle">Dapatkan kemudahan pengiriman dan layanan pickup langsung ke lokasi Anda. Plus peluang cuan tambahan dengan kemitraan Droppoint.</p>
+    <div class="offer-card">
+      <h2 style="font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:0.3rem;">🛒 Marketplace Seller</h2>
+      <p>Layanan pickup prioritas untuk penjual marketplace. Kirim banyak paket setiap hari — kami jemput gratis.</p>
+      <div class="marketplace-grid">
+        <span class="mkt-badge shopee"><span class="mkt-icon">🛒</span> Shopee Seller</span>
+        <span class="mkt-badge tokopedia"><span class="mkt-icon">🛍️</span> Tokopedia Seller</span>
+        <span class="mkt-badge tiktok"><span class="mkt-icon">🎵</span> TikTok Shop Seller</span>
+        <span class="mkt-badge lazada"><span class="mkt-icon">📦</span> Lazada Seller</span>
+        <span class="mkt-badge umkm"><span class="mkt-icon">🏪</span> UMKM</span>
+        <span class="mkt-badge" style="border-color:rgba(251,191,36,0.4);color:#FBBF24;"><span class="mkt-icon">🔄</span> Reseller & Dropshipper</span>
+      </div>
+    </div>
+    <div class="offer-card-alt">
+      <div class="offer-highlight" style="margin-bottom:1rem;">
+        💰 <strong>Dapatkan cuan tambahan</strong> — jadikan lokasi Anda sebagai Droppoint resmi Kantor Pos Cilegon. Setiap paket yang dititipkan = komisi untuk Anda.
+      </div>
+      <p style="margin-top:0.5rem;color:var(--text-muted);font-size:0.88rem;">Hubungi PIC kami untuk informasi kemitraan Droppoint. Terbuka untuk individu, toko, dan warung di seluruh Kota Cilegon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOKASI -->
+<section class="section section-card" id="lokasi">
+  <div class="container">
+    <div class="section-label">📍 Jangkauan</div>
+    <h2 class="section-title">Lokasi Kantor Pos Cilegon</h2>
+    <p class="section-subtitle">Lima kantor pos siap melayani pickup di seluruh Kota Cilegon.</p>
+    <div class="loc-grid">
+      <a href="https://maps.app.goo.gl/gqmhzHAFYfcAaAug8" target="_blank" class="loc-card">
+        <div class="loc-icon">🏢</div>
+        <div><h4>KC Cilegon 42400</h4><p>Kantor Pos Cabang Utama Cilegon</p></div>
+      </a>
+      <a href="https://maps.app.goo.gl/nWjQwc3gJdw2ca3h7" target="_blank" class="loc-card">
+        <div class="loc-icon">🏭</div>
+        <div><h4>KCP Cilegon Krakatau Steel</h4><p>Kantor Pos Tegal Wangi 42435A</p></div>
+      </a>
+      <a href="https://maps.app.goo.gl/KUbXeqfLxgc6tnU47" target="_blank" class="loc-card">
+        <div class="loc-icon">⚓</div>
+        <div><h4>KCP Cilegon Merak</h4><p>Kantor Pos Merak 42438A</p></div>
+      </a>
+      <a href="https://maps.app.goo.gl/usjK2pZCqCzKVt2S7" target="_blank" class="loc-card">
+        <div class="loc-icon">🏘️</div>
+        <div><h4>KCP Bojonegara</h4><p>Kantor Pos Bojonegara 42454</p></div>
+      </a>
+      <a href="https://maps.app.goo.gl/MqJf86MznB6FDoGGA" target="_blank" class="loc-card">
+        <div class="loc-icon">🏖️</div>
+        <div><h4>KCP Anyerlor</h4><p>Kantor Pos Anyer</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- KENAPA PILIH KAMI -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">⭐ Keunggulan</div>
+    <h2 class="section-title">Kenapa Pilih Kami?</h2>
+    <p class="section-subtitle">Alasan pelanggan mempercayakan pickup ke Kantor Pos Cilegon.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🆓</div>
+        <h4>Gratis Pickup</h4>
+        <p>Layanan penjemputan tanpa biaya. Anda hanya bayar ongkos kirim standar Pos Indonesia.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📦</div>
+        <h4>Tanpa Minimum</h4>
+        <p>Kirim 1 paket atau 100 paket — kami jemput. Tidak ada batasan jumlah.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h4>Cepat & Tanggap</h4>
+        <p>Tim kami responsif. Request hari ini, kami proses secepat mungkin.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h4>Terpercaya</h4>
+        <p>Bagian dari PT Pos Indonesia (Persero) — BUMN terpercaya sejak 1746.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section section-card" id="ajukan">
+  <div class="container">
+    <div class="section-label">📝 Request</div>
+    <h2 class="section-title">Ajukan Pickup Sekarang</h2>
+    <p class="section-subtitle">Isi data di bawah — tanpa registrasi, tanpa login, langsung proses.</p>
+    <div class="form-section">
+      <div class="form-card">
+        <form method="POST" action="/pickup">
+          <input type="hidden" name="_token" value="STATIC_PREVIEW">
+          <div class="form-group">
+            <label>Nama Pengirim *</label>
+            <input type="text" name="nama" required placeholder="Nama lengkap Anda">
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="email" required placeholder="email@anda.com">
+          </div>
+          <div class="form-group">
+            <label>No. HP / WhatsApp *</label>
+            <input type="tel" name="nomor_kontak" required placeholder="08xxxxxxxxxx">
+          </div>
+          <div class="form-group">
+            <label>Alamat Penjemputan *</label>
+            <textarea name="alamat_pickup" required rows="2" placeholder="Alamat lengkap — pastikan mudah ditemukan"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Tujuan Kiriman *</label>
+            <input type="text" name="alamat_tujuan" required placeholder="Kota / alamat tujuan pengiriman">
+          </div>
+          <div class="form-group">
+            <label>Jumlah &amp; Deskripsi Barang *</label>
+            <textarea name="deskripsi_barang" required rows="2" placeholder="Contoh: 3 paket — dokumen, pakaian, elektronik"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">🚀 Kirim Permintaan Pickup</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label">📞 Bantuan</div>
+    <h3 style="font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:0.3rem;">Ada Pertanyaan?</h3>
+    <p style="color:var(--text-muted);margin-bottom:1.5rem;">Hubungi PIC kami langsung.</p>
+    <div class="contact-bar">
+      <div class="contact-info">
+        <h3>👤 Achmad Fariz S</h3>
+        <p>📱 08990752617</p>
+      </div>
+      <a href="https://wa.me/628990752617" target="_blank" class="btn btn-wa">💬 WhatsApp Sekarang</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-head">📮 PT Pos Indonesia (Persero) — POSIND — Danantara</div>
+    <div class="footer-line">Kantor Pos Cilegon 42400 • Layanan Pickup Seluruh Wilayah Kota Cilegon</div>
+    <div class="footer-sub">Layanan penjemputan kiriman tanpa minimum — praktis, gratis, terpercaya.</div>
+    <div class="footer-copy">© 2026 Instant Pickup Barang. Created by Achmad Fariz S.</div>
+  </div>
+</footer>
+
+</body>
+</html>
